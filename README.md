@@ -1,13 +1,5 @@
 # DonGalleto
 
-## Tabla de Contenidos
-1. [Avance](#Avance)
-
-## **Psoposito**
-Este es el modulo de inventario de Don Galleto, el cual tiene como proposito poder almacenar y gestionar todo el producto final de la tienda como galletas y paquetes de galletas
-
-
-
 ## Avance
 - 🟩 Creacion de lotes de Galletas
 - 🟩 Visualizacion de lotes de Galletas
