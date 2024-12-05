@@ -322,7 +322,6 @@ async function savePaquete() {
         Swal.fire('', datos.exception, 'warning');
         return;
     }
-
     refreshTableGalletas();
     refreshTablePaquete();
     refreshTableInventario();
