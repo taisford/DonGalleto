@@ -43,9 +43,9 @@ public class CQRSInventario {
         daoinventario.delete(g, cantidad);
     }
 
-    public int savePaquete(Paquete p, Integer cantidad) throws Exception {
+    public int savePaquete(Paquete p) throws Exception {
         validarSavePaquete(p);
-        return daoinventario.savePaquete(p, cantidad);
+        return daoinventario.savePaquete(p);
     }
     
     

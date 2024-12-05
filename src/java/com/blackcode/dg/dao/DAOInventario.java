@@ -108,7 +108,7 @@ public class DAOInventario {
     ////////////////////////////////////////////////////////////////////////////
     //                              PAQUETES                                  //
     ////////////////////////////////////////////////////////////////////////////
-    public int savePaquete(Paquete p, Integer cantidad) throws Exception {
+    public int savePaquete(Paquete p) throws Exception {
         System.out.println("Entre al metodo SavePaquete");
         String sql = """
                      call crearPaquete(?, ?, ?)
@@ -121,7 +121,7 @@ public class DAOInventario {
 
         try {
             cs.setInt(1, p.getGalleta().getIdGalleta());
-            cs.setInt(2, cantidad);
+            cs.setInt(2, p.getCantidad());
             cs.registerOutParameter(3, Types.INTEGER);
             cs.executeUpdate();
 
@@ -169,8 +169,8 @@ public class DAOInventario {
 
         // Llenar datos del paquete
         p.setIdPaquete(rs.getInt("idPaquete"));
-        p.setTipo(rs.getString("tipo"));  // Esto es el tipo de paquete (ahora lo llamamos tipoPaquete)
-        p.setCantidad(rs.getInt("cantidad"));  // Es la cantidad de paquetes
+        p.setTipo(rs.getString("tipo"));
+        p.setCantidad(rs.getInt("cantidad"));
         p.setEstatus(rs.getInt("estatus"));
         p.setGalleta(g);
 

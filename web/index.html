@@ -29,7 +29,9 @@
             .bg-danger-light{
                 background-color: rgba(255, 0, 0, 0.1); /* Rojo suave */
             }
-
+            .buyButtons{
+                background-color: #FFD700;
+            }
         </style>
 
     </head>
@@ -73,9 +75,9 @@
                 <div class="col-md-11 ms-sm-auto col-lg-11 px-md-4 container rounded-3 mt-5 p-1">
                     <div class="row">
                         <div class="col-6">
-                            <div class="card pt-2 pb-2 pe-0 ps-0 border-0 rounded-3">
-                                <div class="card-header border-0 text-center">
-                                    <b class="text-center">Galletas</b>
+                            <div class="card border-0 rounded-3">
+                                <div class="card-header border-0 rounded-top-3 text-center bg-warning opacity-50">
+                                    <b class="text-center font-Spartan">Galletas</b>
                                 </div>
                                 <table class="table-borderless rounded-3 text-center">
                                     <thead>
@@ -92,13 +94,14 @@
                                         <!-- Contenido de la tabla -->
                                     </tbody>
                                 </table>
+                                <div class="card-footer border-0 rounded-bottom-3"></div>
                             </div>
                             <!-- Paquetes -->
-                            <div class="card pt-2 pb-2 pe-0 ps-0 border-0 rounded-3 mt-3">
-                                <div class="card-header border-0 text-center bg-white">
-                                    <b class="text-center ">Paquetes</b>
+                            <div class="card border-0 rounded-3 mt-3">
+                                <div class="card-header rounded-top-3 border-0 text-center bg-warning opacity-50">
+                                    <b class="text-center font-Spartan">Paquetes</b>
                                 </div>
-                                <table class="table-borderless rounded-3 text-center">
+                                <table class="rounded-3 text-center">
                                     <thead>
                                         <tr>
                                             <th>N°lote</th>
@@ -113,10 +116,11 @@
                                         <!-- Contenido de la tabla -->
                                     </tbody>
                                 </table>
+                                <div class="card-footer border-0 rounded-bottom-3"></div>
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="row">
+                            <div class="row" style="display: none">
                                 <div class="col-md-6" style="display: ">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="txtIdGalleta" placeholder="" disabled="">
@@ -140,31 +144,31 @@
                                             <option value="Coco">Coco</option>
                                             <option value="Chispas">Chispas</option>
                                             <option value="Naranja">Naranja</option>
-                                            <option value="Naranja">Integrales</option>
-                                            <option value="Naranja">Especiales</option>
+                                            <option value="Integrales">Integrales</option>
+                                            <option value="Especiales">Especiales</option>
                                         </select> 
                                         <label for="txtSabor">Sabor</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12" style="display: ">
+                            <div class="row">
+                                <div class="col-md-12" style="display: none ">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="txtTipo" placeholder="" disabled="">
                                         <label for="txtTipo">Tipo Galleta</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12" style="display: ">
+                            <div class="row">
+                                <div class="col-md-12" style="display: none ">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="txtCantidad" placeholder="" disabled="">
                                         <label for="txtCantidad">Cantidad</label>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12" style="display: ">
+                            <div class="row">
+                                <div class="col-md-12" style="display: none ">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="txtFecha" placeholder="" disabled="">
                                         <label for="txtFecha">Fecha Caducidad</label>
@@ -175,24 +179,24 @@
                                 <!-- Botón Nuevo Paquete -->
                                 <div class="col-4">
                                     <div class="form-floating text-end">
-                                        <button class="text-center col-12 btn btn-warning text-white font-Spartan" type="button" data-bs-toggle="modal" data-bs-target="#modalNuevoPaquete">Nuevo Paquete<i class="fa fa-plus ms-1"></i></button>
+                                        <button class="text-center col-12 btn buyButtons btn-warning border-0 text-white font-Spartan" type="button" data-bs-toggle="modal" data-bs-target="#modalNuevoPaquete"><b>Nuevo Paquete</b><i class="fa fa-plus ms-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-floating text-end">
-                                        <button class="text-center col-12 btn btn-warning text-white font-Spartan" onclick="clearForm();" >Nuevo Lote<i class="fa fa-plus ms-1"></i> </button>
+                                        <button class="text-center col-12 btn buyButtons btn-warning border-0 text-white font-Spartan" onclick="clearForm();"><b>Nuevo Lote</b><i class="fa fa-plus ms-1"></i> </button>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-floating text-end">
-                                        <button class="text-center col-12 btn btn-warning text-white font-Spartan" onclick="saveGalleta()">Guardar</button>
+                                        <button class="text-center col-12 btn buyButtons btn-warning border-0 text-white font-Spartan" onclick="saveGalleta()"><b>Guardar</b></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-12">
                                     <div class="form-floating text-end">
-                                        <button class="text-center col-12 btn btn-warning text-white font-Spartan" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Mermar<i class="fa fa-trash-alt ms-2"></i></button>
+                                        <button class="text-center col-12 btn buyButtons btn-warning border-0 text-white font-Spartan" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><b>Mermar</b><i class="fa fa-trash-alt ms-2"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -242,7 +246,7 @@
                             </div>
                             <div class="modal-body" style="background-color: #eee">
                                 <form id="formNuevoPaquete">
-                                    <div class="col-md-12 mt-3" style="display:  ">
+                                    <div class="col-md-12" style="display: none ">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="mdlIdGalletas" placeholder="" disabled="">
                                             <label for="mdlIdGalletas">id</label>
@@ -262,10 +266,10 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="col-md-12 mt-3">
+                                    <div class="col-md-12 mt-2">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control border-0" id="mdlCantidad" placeholder="">
-                                            <label for="mdlCantidad">Cantidad</label>
+                                            <input type="number" class="form-control border-0" id="mdlCantidadPkg" placeholder="">
+                                            <label for="mdlCantidadPkg">Cantidad</label>
                                         </div>
                                     </div>
                                 </form>

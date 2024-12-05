@@ -117,7 +117,7 @@ function resaltarInventario() {
 
         // Verifica si la cantidad es menor a 30 y aplica estilo
         if (cantidad <= 30) {
-            fila.style.backgroundColor = "rgba(255, 0, 0, 0.1)"; // Rojo suave
+            fila.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
         }
     });
 }
@@ -273,7 +273,7 @@ function resaltarPaquetes() {
         const cantidad = parseInt(fila.dataset.cantidad, 10);
 
         if (cantidad <= 2) {
-            fila.style.backgroundColor = "rgba(255, 165, 0, 0.2)";
+            fila.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
         }
     });
 }
@@ -284,29 +284,25 @@ async function savePaquete() {
     let params = null;
     let resp = null;
     let datos = null;
-    let gall = null;
-    let cantidad = null;
 
-    gall = new Object();
-    gall.idGalleta = 0;
+    let pkg = null;
+    let idGalleta = 0;
+    let idPaquete = 0;
 
-    // Obtener el ID de la galleta
+    pkg = new Object();
+    pkg.idPaquete = 0;
+
+    pkg.galleta = new Object();
+    pkg.galleta.idGalleta = 0;
+
     if (document.getElementById("mdlIdGalletas").value.trim().length > 0) {
-        gall.idGalleta = parseInt(document.getElementById("mdlIdGalletas").value.trim());
+        pkg.galleta.idGalleta = parseInt(document.getElementById("mdlIdGalletas").value.trim());
     }
 
-    // Obtener la cantidad de paquetes
-    cantidad = document.getElementById("mdlCantidad").value.trim();
-    if (cantidad.length >= 0) {
-        cantidad = parseInt(cantidad);
-    } else {
-        Swal.fire('Error', 'Por favor ingrese una cantidad válida de paquetes.', 'warning');
-        return;
-    }
+    pkg.cantidad = document.getElementById("mdlCantidadPkg").value;
 
-    // Añadir la cantidad al parámetro que enviamos al backend
     params = {
-        datosPaquete: JSON.stringify(gall),
+        datosPaquete: JSON.stringify(pkg)
     };
 
     let ctype = 'application/x-www-form-urlencoded;charset=UTF-8';
@@ -328,9 +324,9 @@ async function savePaquete() {
     }
 
     refreshTableGalletas();
+    refreshTablePaquete();
+    refreshTableInventario();
     Swal.fire('Movimiento Realizado',
             'Paquete Guardado correctamente.',
             'success');
 }
-
-

@@ -113,8 +113,7 @@ public class RESTInventario {
         try {
             pa = gson.fromJson(datosPaquete, Paquete.class);
             if (pa.getGalleta().getIdGalleta() > 0) {
-                Integer cantidad = pa.getCantidad();
-                ci.insertPaquete(pa, cantidad);
+                ci.insertPaquete(pa);
             }
             out = """
                 {"result":"Paquete guardado correctamente."}

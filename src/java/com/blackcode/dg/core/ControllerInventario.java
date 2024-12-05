@@ -31,8 +31,8 @@ public class ControllerInventario {
         return daoinventario.getAll();
     }
 
-    public int insertPaquete(Paquete p, Integer cantidad) throws Exception {
-        return cqrsinventario.savePaquete(p, cantidad);
+    public int insertPaquete(Paquete p) throws Exception {
+        return cqrsinventario.savePaquete(p);
     }
 
     public List<Paquete> getAllPaquete() throws Exception {
