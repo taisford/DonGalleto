@@ -329,3 +329,25 @@ async function savePaquete() {
             'Paquete Guardado correctamente.',
             'success');
 }
+
+function verificarAlertasInventario() {
+    let alertaInventario = galletas.filter(galleta => galleta.cantidad <= 30);
+    if (alertaInventario.length > 0) {
+        alertaInventario.forEach(galleta => {
+            Swal.fire('Advertencia',
+                    `El producto "${galleta.sabor}" está en niveles bajos (${galleta.cantidad} unidades).`,
+                    'warning');
+        });
+    }
+}
+
+function verificarAlertasPaquetes() {
+    let alertaPaquetes = paquetes.filter(paquete => paquete.cantidad <= 2);
+    if (alertaPaquetes.length > 0) {
+        alertaPaquetes.forEach(paquete => {
+            Swal.fire('Advertencia',
+                    `El paquete con "${paquete.galleta.sabor}" está en niveles bajos (${paquete.cantidad} unidades).`,
+                    'warning');
+        });
+    }
+}
