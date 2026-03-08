@@ -1,8 +1,5 @@
 # DonGalleto
 
-
-
-
 ## ✨ Modulos
 - 🟩 Metodo de Creacion de Lotes de Galletas
 - 🟩 Metodo de Merma de Galletas
